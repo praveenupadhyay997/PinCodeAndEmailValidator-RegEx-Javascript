@@ -27,8 +27,32 @@ function PinCodeValidator(pinCode, choice)
         return false;
     }
 }
+/// Function to accept the input for the email Id
+function EmailIDValidator(emailID, choice)
+{
+    /// Variable holding the regular expression for the email ID
+    let EMAILID_REGEX;
+    /// Define the regular expression for email Id based on the use case
+    switch (choice)
+    {
+        case 1: EMAILID_REGEX = RegExp('^[0-9A-Za-z]$'); break;
+        default: console.log('Invalid choice'); break;
+    }
+    /// Testing for the emailID to be valid or not
+    if(EMAILID_REGEX.test(emailID))
+    {
+        console.log(emailID + " is a valid email-ID for UC-"+choice);
+        return true;
+    }
+    else
+    {
+        console.log(emailID + " is an invalid email-ID for UC-"+choice);
+        /// Returning false in case you want to validate data entry somewhere
+        return false;
+    }
+}
 /// Taking the input for the pin code as six digits
-let pinCodeEntered = prompt("Enter the pin code with six digits:");
+let pinCodeEntered = prompt("Enter the pin code to be validated :");
 /// UC1 --> Calling the method to validate the pin code for only six characters in pinCode
 PinCodeValidator(pinCodeEntered, 1);
 /// UC2 --> Calling the method to validate the pin code for only six digits in pinCode
@@ -37,3 +61,7 @@ PinCodeValidator(pinCodeEntered, 2);
 PinCodeValidator(pinCodeEntered,3);
 /// UC4 --> Calling the method to validate the pin code for space between three digits in pinCode
 PinCodeValidator(pinCodeEntered,4);
+/// Taking the input for the pin code as six digits
+let emailIdEntered = prompt("Enter the email Id to be validated :");
+/// UC5 --> Calling the method to validate the emailId's first part i.e. abc in abc.xyz@bridgelabz.co.in
+EmailIDValidator(emailIdEntered, 1);
