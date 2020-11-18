@@ -38,6 +38,7 @@ function EmailIDValidator(emailID, choice)
         case 1: EMAILID_REGEX = RegExp('^[0-9A-Za-z]$'); break;
         case 2: EMAILID_REGEX = RegExp('^[0-9A-Za-z]+([+-_.](![@])[a-zA-Z]+)*$'); break;
         case 3: EMAILID_REGEX = RegExp('^[0-9A-Za-z]+([+-_.][a-zA-Z]+)*[@][0-9A-Za-z]+$'); break;
+        case 4: EMAILID_REGEX = RegExp('^[0-9A-Za-z]+([+-_.][a-zA-Z]+)*[@][0-9A-Za-z]+[.][0-9A-Za-z]{2,3}$'); break;
         default: console.log('Invalid choice'); break;
     }
     /// Testing for the emailID to be valid or not
@@ -71,3 +72,5 @@ EmailIDValidator(emailIdEntered, 1);
 EmailIDValidator(emailIdEntered, 2);
 /// UC7 --> Calling the method to validate the emailId's third part i.e. abc.xyz@bridgelabz in abc.xyz@bridgelabz.co.in
 EmailIDValidator(emailIdEntered, 3);
+/// UC8 --> Calling the method to validate the emailId's optional parts or top level domains i.e. abc.xyz@bridgelabz.co/com in abc.xyz@bridgelabz.co.in
+EmailIDValidator(emailIdEntered, 4);
