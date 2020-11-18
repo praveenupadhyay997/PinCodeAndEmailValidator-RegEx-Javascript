@@ -10,6 +10,7 @@ function PinCodeValidator(pinCode, choice)
     {
         case 1: PINCODE_REGEX = RegExp('^[A-Za-z0-9]{6}$'); break;
         case 2: PINCODE_REGEX = RegExp('^[0-9]{6}$'); break;
+        case 4: PINCODE_REGEX = RegExp('^[0-9]{3}[ ]?[0-9]{3}$'); break;
         default: console.log('Invalid choice'); break;
     }
     /// Testing for the pin code to be valid or not
@@ -30,3 +31,5 @@ let pinCodeEntered = prompt("Enter the pin code with six digits:");
 PinCodeValidator(pinCodeEntered, 1);
 /// UC2 --> Calling the method to validate the pin code for only six digits in pinCode
 PinCodeValidator(pinCodeEntered, 2);
+/// UC4 --> Calling the method to validate the pin code for space between three digits in pinCode
+PinCodeValidator(pinCodeEntered,4);
