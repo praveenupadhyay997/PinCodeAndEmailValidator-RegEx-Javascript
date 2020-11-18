@@ -36,7 +36,8 @@ function EmailIDValidator(emailID, choice)
     switch (choice)
     {
         case 1: EMAILID_REGEX = RegExp('^[0-9A-Za-z]$'); break;
-        case 2: EMAILID_REGEX = RegExp('^[0-9A-Za-z]+([+-_.][a-zA-Z]+)*$'); break;
+        case 2: EMAILID_REGEX = RegExp('^[0-9A-Za-z]+([+-_.](![@])[a-zA-Z]+)*$'); break;
+        case 3: EMAILID_REGEX = RegExp('^[0-9A-Za-z]+([+-_.][a-zA-Z]+)*[@][0-9A-Za-z]+$'); break;
         default: console.log('Invalid choice'); break;
     }
     /// Testing for the emailID to be valid or not
@@ -66,5 +67,7 @@ PinCodeValidator(pinCodeEntered,4);
 let emailIdEntered = prompt("Enter the email Id to be validated :");
 /// UC5 --> Calling the method to validate the emailId's first part i.e. abc in abc.xyz@bridgelabz.co.in
 EmailIDValidator(emailIdEntered, 1);
-/// UC5 --> Calling the method to validate the emailId's second part i.e. abc.xyz in abc.xyz@bridgelabz.co.in
+/// UC6 --> Calling the method to validate the emailId's second part i.e. abc.xyz in abc.xyz@bridgelabz.co.in
 EmailIDValidator(emailIdEntered, 2);
+/// UC7 --> Calling the method to validate the emailId's third part i.e. abc.xyz@bridgelabz in abc.xyz@bridgelabz.co.in
+EmailIDValidator(emailIdEntered, 3);
